@@ -2,15 +2,19 @@
     <div class="task-list" @click="hideContextMenu">
       <table>
         <thead>
+          <tr class="editmessage">
+              Click right to edit
+          </tr>
           <tr>
-            <th>Task created on</th>
-            <th>Task Name</th>
+            <th>Date</th>
+            <th>Name</th>
             <th>State</th>
             <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="task in tasks" :key="task.id" @contextmenu.prevent="showContextMenu($event, task)">
+              
             <td>{{ formatDate(task.createdAt) }}</td>
             <td v-if="task.isEditing">
               <input v-model="task.name" placeholder="Task Name" />
@@ -119,43 +123,7 @@
   };
   </script>
   
-  <style>
-  .task-list {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  th, td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-  }
-  th {
-    background-color: #f0f0f0;
-  }
-  .context-menu {
-    position: absolute;
-    background-color: white;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-  }
-     .context-menu button {
-       display: block;
-       width: 100%;
-       padding: 10px;
-       border: none;
-       background: none;
-       text-align: left;
-     }
-     .context-menu button:hover {
-       background-color: #f0f0f0;
-     }
-     </style>
+  <style src="./src/style.css"></style>
   
   
   

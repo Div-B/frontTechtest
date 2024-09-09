@@ -1,27 +1,48 @@
 <template>
   <div id="app">
     <header>
-      <span v-if="userName">Welcome, {{ userName }}!</span>
+      
+      <div class="logotoparea">
+        <div class="logo">
+          <img src="./assets/logo.png" alt="Logo" class="logo" />
+          <h1 class="title">Task manager</h1>
+        </div>
+      </div>
+        <div class="overlay">
+           <div class="overlay-content">
+              <span v-if="userName">Welcome {{ userName }}!</span>
+            </div>
+
+        </div>
+      
+        
     </header>
+    
     <div class="form-container">
       <UserForm @set-user="setUserName" />
     </div>
+
+    
     <div class="menu-container">
-      <button @click="setView('create')">Create a Task</button>
-      <button @click="setView('list')">List Tasks</button>
+      <button @click="setView('create')">New task</button>
+      <button @click="setView('list')">View tasks</button>
     </div>
+    
+
     <div v-if="view === 'create'" class="task-form-container">
       <TaskForm @add-task="addTask" />
     </div>
     <div v-if="view === 'list'" class="task-list-container">
       <div class="filter-menu">
-        <label for="filter-tasks">Filter tasks:</label>
-        <select id="filter-tasks" v-model="selectedFilter" @change="applyFilter">
-          <option value="all">All</option>
-          <option value="not started">Not Started</option>
-          <option value="ongoing">Ongoing</option>
-          <option value="completed">Completed</option>
-        </select>
+        <div class="filter-menu-content">
+          <label for="filter-tasks">Filter</label>
+          <select id="filter-tasks" v-model="selectedFilter" @change="applyFilter">
+            <option value="all">All</option>
+            <option value="not started">Not Started</option>
+            <option value="ongoing">Ongoing</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>        
       </div>
       <TaskList
         :tasks="filteredTasks"
@@ -108,36 +129,7 @@ export default {
 };
 </script>
 
-<style>
-header {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-.form-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  height: 100vh;
-  padding-top: 20px;
-}
-.menu-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-.menu-container button {
-  margin: 0 10px;
-}
-.task-form-container, .task-list-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-.filter-menu {
-  margin-bottom: 10px;
-}
-</style>
+<style src="./style.css"></style>
 
 
 

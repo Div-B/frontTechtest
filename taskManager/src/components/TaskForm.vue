@@ -1,13 +1,15 @@
 <template>
-    <form @submit.prevent="handleSubmit">
-      <input v-model="name" placeholder="Task Name" required />
-      <select v-model="state">
+    <form @submit.prevent="handleSubmit" id="taskform">
+      <input class="taskforminput" v-model="name" placeholder="Name your task" required />
+      
+      <select class="taskformselect" v-model="state">
+        <option value="choosestate">Choose State</option>  
         <option value="not started">Not Started</option>
         <option value="ongoing">Ongoing</option>
         <option value="completed">Completed</option>
       </select>
-      <textarea v-model="description" placeholder="Description"></textarea>
-      <button type="submit">Create Task</button>
+      <textarea class="taskformtextarea" v-model="description" placeholder="Write a description"></textarea>
+      <button class="taskformbutton" type="submit">Submit</button>
     </form>
   </template>
   
@@ -18,13 +20,13 @@
     emits: ['add-task'],
     setup(_, { emit }) {
       const name = ref('');
-      const state = ref('not started');
+      const state = ref('choosestate');
       const description = ref('');
   
       const handleSubmit = () => {
         emit('add-task', { name: name.value, state: state.value, description: description.value });
         name.value = '';
-        state.value = 'not started';
+        state.value = 'choosestate';
         description.value = '';
       };
   
@@ -33,15 +35,5 @@
   };
   </script>
   
-  <style>
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  input, select, textarea, button {
-    margin: 5px;
-  }
-  </style>
   
-  
+  <style src="./src/style.css"></style>

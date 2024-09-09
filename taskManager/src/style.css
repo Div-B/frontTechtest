@@ -5,7 +5,8 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #fffafa;
+
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -28,8 +29,69 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+
 }
 
+header {
+  position: absolute;
+  top: 0%;
+  left:0%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+   
+}
+
+.logotoparea {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 30vh;
+  background-color: #ff5349;
+  margin: 0;
+  padding: 0;
+  position: relative;
+
+ 
+}
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25); /* Semi-transparent overlay */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: white; /* Text color */
+  font-size: 2rem;
+  padding-right: 20px;
+  
+}
+.overlay-content {
+  margin-right: 20px; 
+  transform: translateX(-10px); 
+}
+
+.logo img{
+  height: 40px;
+  margin-right: 10px;
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #66023c;
+}
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -37,21 +99,20 @@ h1 {
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #66023c;
   cursor: pointer;
-  transition: border-color 0.25s;
 }
+
 button:hover {
-  border-color: #646cff;
+  border-color: #fffafa;
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline:#f2eaea;
 }
 
 .card {
@@ -71,9 +132,204 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #fffafa;
   }
   button {
     background-color: #f9f9f9;
   }
+  
+}
+/* Userform.vue */
+#userform {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  
+  
+  flex-direction: column;
+  align-items: center;
+  
+  z-index: 1;
+}
+
+#userform input {
+  color:  #fffafa;
+  background-color: #161515;
+  border-radius: 4px;
+  padding: 5px;
+}
+input, button {
+  margin: 10px;
+  
+
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items:flex-start;
+  height: 30vh; 
+  margin-top: 20px;
+  
+}
+
+.menu-container {
+  display: grid;
+  grid-template-columns: 0.15fr 0.15fr;
+  justify-content:center;
+  background-color:#66023c;
+  width: 100vw;  
+  font-size: 1em;
+  margin-top: -8.6%;
+  margin-left: -6%;
+  margin-top: -8.7%;
+  margin-left: -6%;
+  position: relative;
+  padding: 0.1em;
+}
+
+.task-form-container, .task-list-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  
+} 
+
+#taskform textarea {
+  background-color: #161515;
+  width: 100%; 
+  color: #fffafa;
+  padding: 30px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+    
+}
+
+.taskformselect {
+  background-color: #161515;
+  width: 60%; 
+  color: #fffafa;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 4px;
+}
+
+.taskforminput {
+  background-color: #161515;
+  width: 100%; 
+  color: #fffafa;
+  padding: 10px;
+  margin-top: 30px;
+  border-radius: 4px;
+
+}
+
+
+.filter-menu {
+  
+  font-weight: bold;
+  display: flex;
+  justify-content: end;
+  margin-top: -60px;
+  z-index: 100;
+}
+
+.filter-menu-content {
+  transform: translateX(800px); 
+}
+
+label {
+  padding-right: 10px;
+  font-size: 1em;
+}
+
+
+#filter-tasks {
+  background-color: #161515;
+  padding: 5px;
+  border-radius: 4px;
+  height: 30px;
+  margin-top: 3px;
+  
+}
+
+/* TaskList styles */
+.task-list {
+  width: 100%;
+  max-width: 800px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  
+}
+
+.editmessage {
+  color: #161515;
+  font-size: 0.5em;
+  font-weight: 50;
+}
+
+th {
+  color: #161515;
+  background-color:#f2eaea;
+}
+
+td {
+  background-color: #161515;
+  color: #fffafa;
+  
+}
+
+th, td {
+  border: none;
+  padding: 10px;
+  text-align: center;
+}
+
+
+.context-menu {
+  background-color: #f2eaea;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+
+.context-menu button {
+  display: block;
+  width: 100%;
+  padding: 1px;
+  border: none;
+  background: none;
+  text-align: left;
+  color: #161515;
+  font-weight: 500;
+}
+
+.context-menu button:hover {
+  text-decoration: underline;
+}
+
+/*Style for  Taskform.vue*/
+#taskform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.taskforminput .taskformselect .taskformtextarea .taskformbutton {
+  margin: 5px;
+}
+
+#filtertasks {
+  background-color: #161515;
+  width: 60%; 
+  color: #fffafa;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 4px;
+
 }

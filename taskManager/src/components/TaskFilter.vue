@@ -1,5 +1,6 @@
 <template>
     <div>
+      
       <button @click="filter('all')">All</button>
       <button @click="filter('not started')">Not Started</button>
       <button @click="filter('ongoing')">Ongoing</button>
@@ -17,5 +18,6 @@
     }
   };
   </script>
+  
   
   
