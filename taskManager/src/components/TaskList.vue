@@ -30,9 +30,12 @@
             <td v-else>{{ task.state }}</td>
             <td v-if="task.isEditing">
               <textarea v-model="task.description" placeholder="Description"></textarea>
+              </td>
+              <td class="buttons-save-cancel" v-if="task.isEditing">
               <button @click="saveTask(task)">Save</button>
               <button @click="cancelEdit(task)">Cancel</button>
-            </td>
+              </td>
+            
             <td v-else>{{ task.description }}</td>
           </tr>
         </tbody>

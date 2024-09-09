@@ -7,6 +7,11 @@
           <img src="./assets/logo.png" alt="Logo" class="logo" />
           <h1 class="title">Task manager</h1>
         </div>
+        <div class="menu-container">
+              <button @click="setView('create')">New task</button>
+              <button @click="setView('list')">View tasks</button>
+      
+        </div>
       </div>
         <div class="overlay">
            <div class="overlay-content">
@@ -23,11 +28,7 @@
     </div>
 
     
-    <div class="menu-container">
-      <button @click="setView('create')">New task</button>
-      <button @click="setView('list')">View tasks</button>
-    </div>
-    
+   
 
     <div v-if="view === 'create'" class="task-form-container">
       <TaskForm @add-task="addTask" />

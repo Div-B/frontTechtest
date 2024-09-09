@@ -12,6 +12,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 a {
@@ -37,13 +38,13 @@ body {
 }
 
 header {
-  position: absolute;
+  position: fixed;
   top: 0%;
   left:0%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+  z-index: 1;
    
 }
 
@@ -51,7 +52,7 @@ header {
   display: flex;
   align-items: center;
   width: 100vw;
-  height: 30vh;
+  height: 35vh;
   background-color: #ff5349;
   margin: 0;
   padding: 0;
@@ -120,10 +121,12 @@ button:focus-visible {
 }
 
 #app {
-  max-width: 1280px;
+  max-width: 100%;
+  /*max-width: 1280px;*/
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  
 }
 
 @media (prefers-color-scheme: light) {
@@ -175,17 +178,18 @@ input, button {
 
 .menu-container {
   display: grid;
-  grid-template-columns: 0.15fr 0.15fr;
-  justify-content:center;
-  background-color:#66023c;
-  width: 100vw;  
+  grid-template-columns: 1fr 1fr;
+  justify-content:start;
+  background-color: none;
+  margin-top: 13%;
+  margin-left: -15%;
   font-size: 1em;
-  margin-top: -8.6%;
-  margin-left: -6%;
-  margin-top: -8.7%;
-  margin-left: -6%;
-  position: relative;
   padding: 0.1em;
+  z-index: 2;
+}
+
+.menu-container button {
+  
 }
 
 .task-form-container, .task-list-container {
@@ -229,19 +233,24 @@ input, button {
 .filter-menu {
   
   font-weight: bold;
-  display: flex;
-  justify-content: end;
-  margin-top: -60px;
+  margin-top: -16%;
   z-index: 100;
+  padding-right: 40%;
 }
 
 .filter-menu-content {
   transform: translateX(800px); 
+  display: grid;
+  grid-template-columns: 0.05fr 0.05fr;
+  position: relative;
+  
 }
 
 label {
+  padding-top: 15%;
   padding-right: 10px;
   font-size: 1em;
+  color: #161515;
 }
 
 
@@ -261,10 +270,11 @@ label {
 }
 
 table {
+  
   width: 100%;
   border-collapse: collapse;
-  margin-top: 30px;
-  
+  margin-top: -10%;
+  table-layout: auto;
 }
 
 .editmessage {
@@ -288,6 +298,7 @@ th, td {
   border: none;
   padding: 10px;
   text-align: center;
+  
 }
 
 
@@ -314,6 +325,10 @@ th, td {
   text-decoration: underline;
 }
 
+.buttons-save-cancel {
+  background:#fffafa;
+
+}
 /*Style for  Taskform.vue*/
 #taskform {
   display: flex;
